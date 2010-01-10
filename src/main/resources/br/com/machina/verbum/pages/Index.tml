@@ -1,0 +1,11 @@
+<html t:type="layout" 
+      t:sidebarTitle="Current Time"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<h2>Título</h2>
+	<p>
+		Texto
+	</p>      
+
+</html>

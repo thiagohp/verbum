@@ -1,0 +1,30 @@
+<html t:type="layout" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>
+    	${message:message.login.form}
+    </p>
+    
+	<form t:type="Form">
+		<div t:type="Errors"/>
+					
+		<div class="t-beaneditor-row">
+			<label t:type="Label" for="login" t:ignoreBody="true">Login</label>
+			<input type="text" t:type="TextField" t:id="login"  
+				t:validate="required,regexp=[a-z]+,minlength=1,maxlength=30"/>
+		</div>
+		
+		<div class="t-beaneditor-row">	
+			<label t:type="Label" for="password" t:ignoreBody="true">Password</label>
+			<input type="text" t:type="PasswordField" t:id="password" 
+				t:validate="required,minlength=6,maxlength=30"/>
+		</div>
+			
+		<div class="submit">
+			<input type="submit"/>
+		</div>
+		
+	</form>
+
+</html>

@@ -1,0 +1,136 @@
+label, input {
+	float: left;
+	display: block;
+}
+
+label {
+	width: 10em;	
+}
+
+form input, form select, form textarea {
+	display: inline;	
+}
+
+div.t-beaneditor-row {
+	float: left;
+}
+
+div.t-beaneditor-row label.inline {
+	display: inline;
+	float: none;
+}
+
+/*
+div.t-beaneditor-row label, div.t-beaneditor-row input, 
+div.t-beaneditor-row select, div.t-beaneditor-row textarea {
+	width: 15em;
+}
+*/
+
+input.t-number {
+	text-align: left;
+	width: 5em;
+}
+
+form.editarPagina div.t-beaneditor-row {
+	display: block;
+	clear: both;
+}
+
+div.t-beaneditor-row textarea {
+	width: 30em;
+	height: 3em;
+	float: left;
+}
+
+div.t-beaneditor-row label {
+	width: 15em;
+	padding-right: 1em;
+	float: left;
+	display: block;
+}
+
+textarea.tall {
+	height: 12em;
+}
+/*
+form input {
+	width: auto;
+}*/
+
+div.t-palette select {
+	float: left;
+}
+
+input[type="hidden"] {
+	display: none;
+}
+
+input[name="url"], input[name="title"] {
+	width: 30em;
+}
+
+div.t-palette-title {
+	background-color: #5F882C;	
+}
+
+textarea {
+	height: 6em;	
+}
+
+div.t-palette select {
+	width: 15em;
+	height: 13.55em;
+}
+
+img.t-calendar-trigger {
+	float: left;
+	margin-right: 0em;
+}
+
+/*select.estado {
+	length: 7em;
+}*/
+
+form.pesquisa-inicial {
+	/*width: 20em; 
+	float: right;*/ 
+	display: block;
+	background: inherit;
+}
+
+form.pesquisa-inicial label, form.pesquisa-inicial input, form.pesquisa-inicial select {
+	display: inline;
+} 
+
+form.pesquisa-inicial input, form.pesquisa-inicial select {
+	width: auto;
+}
+
+div.t-data-grid {
+	clear: both;
+}
+
+div.t-error div, div.t-error {
+	clear: both;
+}
+
+img.t-error-icon {
+	float: left;
+}
+
+.explicacao-campo {
+	float: left;
+	clear: none;
+	margin-left: 0.5em;
+}
+
+input[disabled=disabled] {
+	background-color: lightgrey;
+	color: black;
+}
+
+div.submit input {
+	margin-left: 14.5em;
+	width: 13.75em;
+}

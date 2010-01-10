@@ -1,0 +1,26 @@
+#header {
+	width: 980px;
+	height: 100px;
+}
+
+#header h2 {
+	display: block;
+	clear: both;
+}
+
+#content {
+	float: none;
+	border-left: none;
+	border-right: none;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+#content h1 {
+	margin-top: 0;
+}
+
+#rightside {
+	padding-left: 1em;
+	border-left: 1px solid #E0E0E0;
+}
