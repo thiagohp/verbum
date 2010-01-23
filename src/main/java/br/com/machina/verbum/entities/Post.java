@@ -30,6 +30,9 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * Class that represents
  * 
@@ -43,9 +46,13 @@ public class Post {
 
 	private Date date;
 
+	private String title;
+
 	private String content;
 
 	private boolean commentsAllowed;
+
+	private boolean draft;
 
 	private Blog blog;
 
@@ -148,6 +155,45 @@ public class Post {
 	 */
 	public void setBlog(Blog blog) {
 		this.blog = blog;
+	}
+
+	/**
+	 * Returns the value of the <code>draft</code> property.
+	 * 
+	 * @return a {@link boolean}.
+	 */
+	public boolean isDraft() {
+		return draft;
+	}
+
+	/**
+	 * Changes the value of the <code>draft</code> property.
+	 * 
+	 * @param draft a {@link boolean}.
+	 */
+	public void setDraft(boolean draft) {
+		this.draft = draft;
+	}
+
+	/**
+	 * Returns the value of the <code>title</code> property.
+	 * 
+	 * @return a {@link String}.
+	 */
+	@Column(nullable = false, length = 150)
+	@Length(min = 1, max = 150)
+	@NotEmpty
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * Changes the value of the <code>title</code> property.
+	 * 
+	 * @param title a {@link String}.
+	 */
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	/**

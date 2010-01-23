@@ -1,0 +1,19 @@
+<html t:type="layout" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<p t:test="message" class="message" t:type="If">
+		${message}
+	</p>
+
+	<table t:type="Grid" t:source="blogs" t:row="blog" t:exclude="id" t:add="action">
+	
+		<p:actionCell>
+			<a href="#" t:type="PageLink" t:page="blog/edit" t:context="blog.stringId">
+				${message:message.edit}
+			</a>
+		</p:actionCell>
+	
+	</table>
+
+</html>

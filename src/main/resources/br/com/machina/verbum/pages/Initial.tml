@@ -1,0 +1,17 @@
+<html t:type="layout" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<p>
+		<a href="#" t:type="PageLink" t:page="blog/list">${message:page.title.blog.list}</a>
+	</p>      
+	<p>
+		<a href="#" t:type="PageLink" t:page="blog/edit">${message:message.new.blog}</a>
+	</p>
+	<p>
+		<a href="#" t:type="PageLink" t:page="post/list">${message:page.title.post.list}</a>
+	</p>      
+	<p>
+		<a href="#" t:type="PageLink" t:page="post/edit">${message:message.new.post}</a>
+	</p>
+</html>

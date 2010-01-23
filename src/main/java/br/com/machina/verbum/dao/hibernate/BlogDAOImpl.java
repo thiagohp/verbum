@@ -68,4 +68,13 @@ public class BlogDAOImpl implements BlogDAO {
 		
 	}
 
+	public Blog findByStringId(String stringId) {
+		
+		final Criteria criteria = session.createCriteria(Blog.class);
+		criteria.add(Restrictions.eq("stringId", stringId));
+		
+		return (Blog) criteria.uniqueResult();
+
+	}
+
 }

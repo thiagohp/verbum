@@ -44,12 +44,20 @@ public interface BlogDAO {
 	List<Blog> findAll();
 	
 	/**
-	 * Returns all blogs owned by a given owner
+	 * Returns all blogs owned by a given owner.
 	 * 
 	 * @param owner an {@link User}.
 	 * @return a {@link List} of {@link Blog}s.
 	 */
 	List<Blog> findByOwner(User owner);
+
+	/**
+	 * Returns the blog with a given stringId.
+	 * 
+	 * @param stringId a {@link String}.
+	 * @return a {@link Blog} or <code>null</code>
+	 */
+	Blog findByStringId(String stringId);
 
 	/**
 	 * Removes an blog.

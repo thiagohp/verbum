@@ -44,7 +44,7 @@ div.t-beaneditor-row textarea {
 }
 
 div.t-beaneditor-row label {
-	width: 15em;
+	width: 10em;
 	padding-right: 1em;
 	float: left;
 	display: block;
@@ -105,14 +105,6 @@ form.pesquisa-inicial label, form.pesquisa-inicial input, form.pesquisa-inicial 
 
 form.pesquisa-inicial input, form.pesquisa-inicial select {
 	width: auto;
-}
-
-div.t-data-grid {
-	clear: both;
-}
-
-div.t-error div, div.t-error {
-	clear: both;
 }
 
 img.t-error-icon {

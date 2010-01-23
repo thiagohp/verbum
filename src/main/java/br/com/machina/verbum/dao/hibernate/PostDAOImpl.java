@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.machina.verbum.dao.PostDAO;
@@ -46,7 +47,11 @@ public class PostDAOImpl implements PostDAO {
 	public List<Post> findAll() {
 
 		final Criteria criteria = session.createCriteria(Post.class);
+		criteria.add(Restrictions.eq("draft", false));
+		criteria.addOrder(Order.desc("date"));
+		
 		return criteria.list();
+		
 	}
 
 	public void remove(Post post) {
@@ -62,6 +67,27 @@ public class PostDAOImpl implements PostDAO {
 		
 		final Criteria criteria = session.createCriteria(Post.class);
 		criteria.add(Restrictions.eq("blog", blog));
+		
+		return criteria.list();
+		
+	}
+
+	public Post findById(int id) {
+		
+		final Criteria criteria = session.createCriteria(Post.class);
+		criteria.add(Restrictions.eq("id", id));
+		
+		return (Post) criteria.list();
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Post> findLatest(int maximum) {
+
+		final Criteria criteria = session.createCriteria(Post.class);
+		criteria.add(Restrictions.eq("draft", false));
+		criteria.addOrder(Order.desc("date"));
+		criteria.setMaxResults(maximum);
 		
 		return criteria.list();
 		

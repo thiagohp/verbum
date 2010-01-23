@@ -35,98 +35,45 @@
 				src="img/front.jpg" width="980" height="226" alt="The Frozen North" />
 			-->
 			<div id="header">
-				<t:delegate to="header"/>
-				<t:block id="defaultHeader">
-					<h1>${message:site.title}</h1>
-					<h2>${message:site.subtitle}</h2>
-				</t:block>
+				<h1>${message:site.title}</h1>
+				<h2>${message:site.subtitle}</h2>
 			</div>
 
 			<div id="leftside">
-				<h2 class="hide">Menu:</h2>
-
+				<h2>${message:title.latest.posts}</h2>
 				<ul class="avmenu">
-					<li>
-						<a class="current" href="index.html">Main layout</a>
-					</li>
-					<li>
-						<a href="index2.html">2-column layout A</a>
-					</li>
-					<li>
-						<a href="index3.html">2-column layout B</a>
-					</li>
-					<li>
-						<a href="#">Subpage demo</a>
-						<ul>
-							<li>
-								<a href="#">Subpage 1</a>
-							</li>
-							<li>
-								<a href="#">Subpage 2</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="print.html">Print stylesheet</a>
+					<li t:type="Loop" t:source="posts" t:value="post">
+						<a href="#" t:type="PageLink" t:page="index" 
+							t:context="[post.blog.stringId, post.id, post.title]">
+							${post.title}
+						</a>
 					</li>
 				</ul>
-
+				<!-- 
 				<div class="announce">
-					<h2>Updates:</h2>
-					<p>
-						<strong>Apr 24, 2008:</strong>
-						<br />
-						Refreshed: v3.0!
-					</p>
-					<p>
-						<strong>Jan 11, 2007:</strong>
-						<br />
-						Improved: v2.5!
-					</p>
-					<p>
-						<strong>June 25, 2006:</strong>
-						<br />
-						Major upgrade: v2.0.
-					</p>
-					<p>
-						<strong>June 25, 2005:</strong>
-						<br />
-						First release: v1.0.
-					</p>
-					<p class="textright">
-						<a href="#">Sample
-							link &raquo;
-						</a>
-					</p>
+					<h2>${message:title.last.posts}</h2>
+					<ul>
+						<li>
+							
+						</li>
+					</ul>
 				</div>
+				-->
 			</div>
 
 			<div id="rightside">
-				<h2>Presentation:</h2>
-				<p>The andreas01 template has a simple but useful layout: a fixed-width 3-column page with a
-					header and a footer. The template can be used in many diffferent ways, and it should be a great
-					starting point for you to customize, play with and add your own personal touch to. A 2-column
-					version is also included.</p>
-
-				<h2>Sample links:</h2>
+				<h2>${message:title.recommended.reading}</h2>
 				<ul>
 					<li>
-						<a href="http://andreasviklund.com/templates/">Free templates</a>
+						<a href="http://tapestry.apache.org">Tapestry site</a>
 					</li>
 					<li>
-						<a href="http://andreasviklund.com/templates/commercial/">Buy templates</a>
+						<a href="http://tapestryjava.blogspot.com">Howard Lewis Ship</a> (Tapestry creator)
 					</li>
 					<li>
-						<a href="http://andreasviklund.com/wordpress-themes/">WordPress themes</a>
-					</li>
-					<li>
-						<a href="http://validator.w3.org/check/referer" title="W3.org XHTML validator">Valid XHTML</a>
-					</li>
-					<li>
-						<a href="http://jigsaw.w3.org/css-validator/check/referer" title="W3.org CSS validator">Valid CSS</a>
+						<a href="http://tapestry5.de/">Igor Drobiazko</a> (Tapestry committer)
 					</li>
 				</ul>
-
 				<h2>Version:</h2>
 				<p>andreas01 v3.0</p>
 			</div>
@@ -139,16 +86,17 @@
 			<div id="footer">
 				<p>
 					<span>&copy;
-						2010
-						<a href="#">Thiago H. de Paula Figueiredo</a>
+						2010 <a href="#">Thiago H. de Paula Figueiredo</a>
 					</span>
 					<br />
 					<a href="http://andreasviklund.com/templates/" title="Original CSS template design">Original design</a>
 					by
 					<a href="http://andreasviklund.com/" title="Andreas Viklund">Andreas Viklund</a>
 				</p>
+				<p>
+					Powered by <a href="http://github.com/thiagohp/verbum">Verbum</a>
+				</p>
 			</div>
-
 		</div>
 	</body>
 </html>

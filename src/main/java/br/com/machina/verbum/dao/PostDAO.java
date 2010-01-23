@@ -36,6 +36,14 @@ public interface PostDAO {
 	void saveOrUpdate(Post post);
 	
 	/**
+	 * Returns the n latest posts from all blogs.
+	 * 
+	 * @param maximum the maximum number of posts to return.
+	 * @return a {@link List} of {@link Post}s.
+	 */
+	List<Post> findLatest(int maximum);
+	
+	/**
 	 * Returns all posts.
 	 * @return a {@link List} of {@link Post}s.
 	 */
@@ -49,7 +57,14 @@ public interface PostDAO {
 	void remove(Post post);
 
 	/**
-	 * Find post by blog.
+	 * Find a post by its id.
+	 * 
+	 * @return a {@link Post} or <code>null</code>.
+	 */
+	Post findById(int id);
+	
+	/**
+	 * Find posts by blog.
 	 * 
 	 * @return @return a {@link List} of {@link Post}s.
 	 */

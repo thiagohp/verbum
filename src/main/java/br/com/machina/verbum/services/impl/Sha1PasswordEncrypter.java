@@ -66,6 +66,8 @@ public class Sha1PasswordEncrypter implements PasswordEncrypter {
 				
 			}
 			
+			password = encrypted;
+			
 		}
 		
 		return password;

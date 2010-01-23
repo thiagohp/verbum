@@ -42,9 +42,10 @@ public class Main {
 	 * @param args ignored
 	 */
 	public static void main(String[] args) {
-		
+
 //		addAdministratorUser();
-		
+//		System.exit(0);
+
 		Server server = new Server(8080);
 
 		WebAppContext webapp = new WebAppContext();
@@ -52,83 +53,82 @@ public class Main {
 		webapp.setParentLoaderPriority(true);
 		webapp.setContextPath("/");
 		webapp.setWar("src/main/webapp");
-		// webapp.setDefaultsDescriptor("src/main/webapp/WEB-INF/webdefault.xml");
 
 		server.setHandler(webapp);
 
 		try {
 			server.start();
-			
+
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Type Enter to stop your application.");
 			scanner.nextLine();
 			server.stop();
-			
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	private static void generateTables() {
-		
+
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
 		configuration.configure();
-		
+
 		SchemaExport export = new SchemaExport(configuration);
 		export.setDelimiter(";");
 		export.setOutputFile("tables.sql");
 		export.create(true, true);
 		System.out.println("Ok!");
-		
+
 	}
-	
+
 	private static void addAdministratorUser() {
-		
+
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
 		configuration.configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 		Session session = null;
 		Transaction transaction = null;
-		
+
 		try {
-			
+
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
-			
+
 			User user = new User();
 			user.setName(ask("Please type your name:"));
 			user.setLogin(ask("Please type your login:"));
 			final String password = ask("Please type your password:");
 			user.setEmail(ask("Please type your e-mail:"));
-			
+
 			Sha1PasswordEncrypter encrypter = new Sha1PasswordEncrypter();
 			user.setPassword(encrypter.encrypt(password));
-			
+
 			user.setAdministrator(true);
-			
+
 			session.save(user);
-			
+
 			transaction.commit();
-			
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			transaction.rollback();
 		}
 		finally {
-		
+
 			if (session != null) {
 				session.close();
 			}
-			
+
 			sessionFactory.close();
-			
+
 		}
-		
+
 	}
-	
+
 	final private static String ask(String message) {
 		return JOptionPane.showInputDialog(message);
 	}

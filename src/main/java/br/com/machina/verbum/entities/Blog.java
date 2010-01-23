@@ -133,7 +133,7 @@ public class Blog {
 	 * 
 	 * @return a {@link String}.
 	 */
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 30, unique = true)
 	@NotNull
 	@Size(min = 1, max = 30)
 	public String getStringId() {

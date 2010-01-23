@@ -1,0 +1,16 @@
+<html t:type="layout" 
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<form t:type="Form">
+		<div t:type="Errors"/>
+
+		<div t:type="BeanEditor" t:object="blog" t:exclude="id"/>
+					
+		<div class="submit">
+			<input type="submit"/>
+		</div>
+		
+	</form>
+
+</html>

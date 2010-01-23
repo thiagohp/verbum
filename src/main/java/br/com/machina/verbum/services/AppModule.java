@@ -1,8 +1,12 @@
 package br.com.machina.verbum.services;
 
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.hibernate.HibernateTransactionAdvisor;
+import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.MappedConfiguration;
+import org.apache.tapestry5.ioc.MethodAdviceReceiver;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Match;
 
 import br.com.machina.verbum.dao.BlogDAO;
 import br.com.machina.verbum.dao.PostDAO;
@@ -24,25 +28,35 @@ public class AppModule {
 	 * @param binder a {@link ServiceBinder}.
 	 */
 	public static void bind(ServiceBinder binder) {
-		
+
 		binder.bind(PasswordEncrypter.class, Sha1PasswordEncrypter.class);
 		binder.bind(UserDAO.class, UserDAOImpl.class);
 		binder.bind(BlogDAO.class, BlogDAOImpl.class);
 		binder.bind(PostDAO.class, PostDAOImpl.class);
-		
+
 	}
 
 	/**
 	 * Sets the value of Tapestry's configuration symbols.
+	 * 
 	 * @param configuration a {@link MappedConfiguration}.
 	 */
 	public static void contributeApplicationDefaults(
 			MappedConfiguration<String, String> configuration) {
-		
+
 		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en, pt_BR");
 		configuration.add(SymbolConstants.PRODUCTION_MODE, "false");
-		configuration.add(SymbolConstants.APPLICATION_VERSION, "1.0-SNAPSHOT");
-		
+		configuration.add(SymbolConstants.APPLICATION_VERSION, "1.0.0-SNAPSHOT");
+
+	}
+
+	/**
+	 * Adds the handling of the {@link CommitAfter} annotation in DAOs.
+	 */
+	@Match("*DAO")
+	public static void adviseTransactions(HibernateTransactionAdvisor advisor,
+			MethodAdviceReceiver receiver) {
+		advisor.addTransactionCommitAdvice(receiver);
 	}
 
 }
